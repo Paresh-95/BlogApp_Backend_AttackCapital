@@ -11,11 +11,7 @@ const PORT = process.env.PORT || 4000
 
 app.use(
     cors({
-      origin: [
-        "http://localhost:3000",
-        "https://blog-app-backend-attack-capital.vercel.app"
-        
-      ],
+      origin:"https://blog-app-frontend-attack-capital.vercel.app",
       credentials: true,
     })
   );
