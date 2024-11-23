@@ -1,10 +1,10 @@
 import express from "express"
 import dotenv from "dotenv"
 import cookieParser from "cookie-parser";
-import dbConnect from "./config/db.js";
+import dbConnect from "../config/db.js";
 import cors from "cors"
-import userRoutes from "./routes/UserRoutes.js"
-import postRoutes from "./routes/PostRoutes.js"
+import userRoutes from "../routes/UserRoutes.js"
+import postRoutes from "../routes/PostRoutes.js"
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 4000
