@@ -120,17 +120,23 @@ export const login = async (req, res) => {
 
 export const logout = async (req, res) => {
   try {
-    res.clearCookie("token", {});
+    
+    res.clearCookie("token", {
+      httpOnly: true, 
+      secure:true,
+      sameSite: "Strict", 
+      path: "/", 
+    });
 
     return res.status(200).json({
       success: true,
-      message: "User Logged Out Successfully",
+      message: "User logged out successfully",
     });
   } catch (error) {
     console.log(error);
     return res.status(500).json({
       success: false,
-      message: "Something went wrong while logging user out",
+      message: "Something went wrong while logging out",
     });
   }
 };

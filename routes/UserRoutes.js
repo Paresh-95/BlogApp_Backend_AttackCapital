@@ -10,7 +10,7 @@ router.post('/auth/signup',signup)
 router.post('/auth/login',login)
 router.get('/auth/user',auth,getUserDetails)
 router.get('/auth/isAuth',auth,getAuthState)
-router.get('/auth/logout',auth,logout)
+router.post('/auth/logout',auth,logout)
 
 
 

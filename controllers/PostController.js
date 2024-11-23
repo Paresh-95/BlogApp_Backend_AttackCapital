@@ -71,6 +71,7 @@ export const getAllBlogs = async (req, res) => {
 export const getBlogsByAuthor = async(req,res) =>{
     try {
         const userId = req.query.author
+        
 
         const blogs = await Post.find({author:userId}).populate("author",'name profilepic').sort({ createdAt: -1 })
         .exec();
