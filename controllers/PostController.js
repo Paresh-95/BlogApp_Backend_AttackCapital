@@ -3,7 +3,7 @@ import Post from "../models/Post.js";
 
 export const createPost = async (req, res) => {
   try {
-    const { title, content } = req.body;
+    const { title,description, content } = req.body;
     const userId = req.user.id;
 
     if (!req.files || !req.files.thumbnail) {
@@ -19,6 +19,7 @@ export const createPost = async (req, res) => {
     const blog = await Post.create({
       title,
       thumbnail,
+      description,
       content,
       author: userId,
     });
@@ -127,7 +128,7 @@ export const getBlogById = async (req, res) => {
 export const updateBlog = async(req,res) =>{
     try {
         const blogId= req.params.id;
-        const {title,content} = req.body;
+        const {title,content,description} = req.body;
         const userId = req.user.id;
 
         const blog = await Post.findById(blogId);
@@ -148,6 +149,8 @@ export const updateBlog = async(req,res) =>{
         const updateData = {}
 
         if(title) updateData.title = title
+        if(description) updateData.description = description
+
         if(content) updateData.content = content
         if(req.files){
             if(req.files.thumbnail){
