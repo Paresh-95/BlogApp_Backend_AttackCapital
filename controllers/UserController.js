@@ -49,6 +49,7 @@ export const signup = async (req, res) => {
       httpOnly: true,
       secure: true, 
       sameSite: "none", 
+      path:"/"
     };
     
     res.cookie("token", token, options);
@@ -101,6 +102,7 @@ export const login = async (req, res) => {
       httpOnly: true,
       secure: true, 
       sameSite: "none", 
+      path:'/'
     };
 
     res.cookie("token", token, options).status(200).json({
