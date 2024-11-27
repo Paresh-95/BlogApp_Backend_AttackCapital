@@ -92,6 +92,11 @@ export const login = async (req, res) => {
       var token = jwt.sign(payload, process.env.JWT_SECRET, {
         expiresIn: "4h",
       });
+    }else{
+      return res.status(400).json({
+        success:false,
+        message:"Wrong Password "
+      })
     }
 
     user.token = token;
